@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoGators</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="{% static 'js/materialize.min.js' %}" defer></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="{% static 'img/favicon.webp' %}">
+
+    <style>
+        :root {
+            --primary-color: #000000; /* Primary text color (black) */
+            --secondary-color: #4a4a4a; /* Secondary text color */
+            --accent-color: #01579b; /* Accent color */
+            --background-color: #FFFFFF; /* Background color (white) */
+            --light-grey: #f0f0f0; /* Light grey for hover effects */
+            --dark-grey: #333333; /* Dark grey for footer */
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        nav {
+            background-color: var(--background-color);
+            border-bottom: 1px solid var(--light-grey);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 60px;
+        }
+
+        .logo-container a {
+            font-weight: 400;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        ul#nav-mobile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+        }
+
+        ul#nav-mobile li a {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        ul#nav-mobile li a:hover {
+            color: var(--secondary-color);
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: var(--dark-grey);
+            color: var(--background-color);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .card {
+            background-color: var(--background-color);
+            border: 1px solid var(--light-grey);
+        }
+    
+        .card-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="{% static 'img/favicon.webp' %}" alt="AlgoGators Logo">
+            <a href="{% url 'home' %}">AlgoGators</a>
+        </div>
+
+        <ul id="nav-mobile">
+            <li>
+                <a href="" class="btn-flat black-text">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AlgoGators</p>
+        </div>
+    </footer>
+</body>
+</html>
